@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   $conn->close();
-  ///otro comentario
+  ///otro comentario agrego nuevos dato
 }
 ?>
 
