@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario_id'])) {
 
 <?php
 $mensaje = "";
-
+//esto es un comentario para probar
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $servername = "localhost";
   $username = "root";
