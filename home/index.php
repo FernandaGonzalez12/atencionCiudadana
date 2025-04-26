@@ -1,122 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Atención Ciudadana</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: #083358;
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      background: url('https://www.celaya.gob.mx/portal/images/noticias/2024/banner_ciudadano.jpg') no-repeat center center/cover;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 1px 1px 4px #000;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      background-color: rgba(0,0,0,0.4);
-      padding: 1rem 2rem;
-      border-radius: 10px;
-    }
-
-    .menu-principal {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 3rem auto;
-      max-width: 1000px;
-    }
-
-    .menu-item {
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 1.5rem;
-      width: 200px;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .menu-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .menu-item img {
-      width: 50px;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background-color: #083358;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 3rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AtencionCiudadana</title>
+    <!-- Importa librerias de estilos de Materialize, DataTable e Iconos -->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/dataTables.materialize.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/default.css"/>
+    
+    <style>
+           .carousel {
+            height: 600px;
+        }
+        .carousel .carousel-item {
+            width: 100%;
+            height: 100%;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
 </head>
+
 <body>
+<?php include_once("../Resource/html/header.php");?>
+<!-- Colocar su código a partir de este comentario -->
+<!--Seccion del carousel consultando las imagenes directamente de la BD-->
+<section>
+    <div class="carousel carousel-slider">
+    <?php
+        require_once("../Modelo/Carousel.php"); 
+        $objCarousel = new Carousel();
+        $imagenes = $objCarousel->obtenerImagenes(); 
 
-  <header>
-    <h1>Atención Ciudadana</h1>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Trámites</a>
-      <a href="#">Dependencias</a>
-      <a href="#">Transparencia</a>
-      <a href="#">Contacto</a>
-    </nav>
-  </header>
+        foreach ($imagenes as $img) {
+            echo "<a class='carousel-item' href='#!'><img src='" . $img['imagen'] . "'></a>";
+        }
+        ?>
+    </div>
+</section>
 
-  <section class="hero">
-    <h2>Tu voz mejora tu comunidad</h2>
-  </section>
-
-  <section class="menu-principal">
+<section class="menu-principal">
     <div class="menu-item">
       <img src="https://cdn-icons-png.flaticon.com/512/2913/2913465.png" alt="Agua">
       <p>Falta de Agua</p>
@@ -150,10 +78,120 @@
       <p><a href="https://es.wikipedia.org" target="_blank" style="text-decoration: none; color: #333;">Wikipedia</a></p>
     </div>
   </section>
+</div>
+<?php include_once("../Resource/html/footer.php")?>
+<!-- Script para carrusel -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.carousel');
+        M.Carousel.init(elems, {
+            fullWidth: true,
+            indicators: true,
+            duration: 300,
+            noWrap: false
+        });
 
-  <footer>
-    <p>© 2025 Atención Ciudadana. Todos los derechos reservados.</p>
-  </footer>
+        // Desplazar manualmente al hacer clic
+        var carouselInstance = M.Carousel.getInstance(elems[0]);
+        document.querySelectorAll('.carousel-item').forEach(item => {
+            item.addEventListener('click', () => {
+                carouselInstance.next(); // Avanza solo al hacer clic
+            });
+        });
+    });
+</script>
 
+<!-- Importa librerias de JavaScript de Jquery, Jaquery Validate, DataTable
+     y Materialize                                                       -->
+<script type="text/javascript" src="../js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/dataTables.materialize.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate.min.js"></script>     
+    <script type="text/javascript" src="./valida.js"></script>     
+    <script type="text/javascript">
+     $(document).ready(function(){
+        $('select').formSelect();
+        $('.sidenav').sidenav();
+        $(".dropdown-trigger").dropdown();
+        $('.tooltipped').tooltip(); 
+     });
+   
+    </script> 
+    <script>
+        function initMap() {
+            // Coordenadas del centro del mapa
+            var latitudInicial = 20.580813;
+            var longitudInicial = -100.825980;
+
+            // Crea un nuevo mapa centrado en la ubicación inicial
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: latitudInicial, lng: longitudInicial},
+                zoom: 12  // Ajusta el nivel de zoom según tus preferencias
+            });
+
+            // Función para agregar un marcador
+            function addMarker(lat, lon, nombre, direccion) {
+                var marker = new google.maps.Marker({
+                    position: {lat: lat, lng: lon},
+                    map: map,
+                    title: nombre
+                });
+
+                // Crea una instancia de InfoWindow con el contenido del título
+                var infowindow = new google.maps.InfoWindow({
+                    content: '<h5>' + nombre + '</h5><p>' + direccion + '</p>'
+                });
+
+                // Abre el InfoWindow cuando se hace clic en el marcador
+                marker.addListener('click', function() {
+                    infowindow.open(map, marker);
+                });
+            }
+
+            <?php
+            require_once("../Modelo/Sede.php");
+            $obj = new Sede();
+            $tuplas = $obj->Consultar();
+
+            // Almacena las ubicaciones en un arreglo
+            $ubicaciones = array();
+
+            foreach ($tuplas as $tupla) {
+                $lon = $tupla['longitud'];
+                $lat = $tupla['latitud'];
+
+                // Verifica si las coordenadas no están vacías
+                if (!empty($lon) && !empty($lat)) {
+                    $idsed = $tupla['idsede'];
+                    $noms = $tupla['nomsede'];
+                    $doms = $tupla['domsede'];
+
+                    // Agrega los datos de ubicación al arreglo
+                    $ubicaciones[] = array(
+                        'lat' => $lat,
+                        'lon' => $lon,
+                        'nombre' => $noms,
+                        'direccion' => $doms
+                    );
+                }
+            }
+
+            // Itera sobre las ubicaciones y llama a la función addMarker
+            foreach ($ubicaciones as $ubicacion) {
+                $lat = $ubicacion['lat'];
+                $lon = $ubicacion['lon'];
+                $nombre = $ubicacion['nombre'];
+                $direccion = $ubicacion['direccion'];
+                if ($nombre!='Todas las sedes')
+                echo "addMarker($lat, $lon, '$nombre', '$direccion');";
+            }
+            ?>
+
+        }
+
+        // Inicializa el mapa cuando se carga la página
+        window.onload = initMap;
+    </script>
 </body>
 </html>

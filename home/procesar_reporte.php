@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost"; // Cambia esto si usas un host diferente
 $username = "root"; // Tu usuario de MySQL
-$password = ""; // Tu contraseña de MySQL
+$password = "12345"; // Tu contraseña de MySQL
 $dbname = "atencion_ciudadana"; // El nombre de tu base de datos
 
 // Crear conexión
