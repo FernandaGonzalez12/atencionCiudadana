@@ -1,3 +1,11 @@
+<?php
+      if  (!isset($_SESSION)){
+        session_start();
+        $corr = "";
+      }
+      //$nomper = isset($_SESSION["nomper"])?$_SESSION["nomper"]:"";
+?>
+
 <footer class="footer">
     <p>Atención Ciudadana</p>
     <p>
