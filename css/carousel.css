@@ -1,0 +1,14 @@
+.carousel {
+    max-height: 300px; /* altura más pequeña */
+    overflow: hidden;  /* oculta cualquier exceso de imagen */
+}
+
+.carousel .carousel-item {
+    height: 300px; /* altura fija para cada slide */
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantiene proporción al recortar si es necesario */
+}
