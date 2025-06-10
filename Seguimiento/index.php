@@ -6,6 +6,7 @@
     <title>Registrar Seguimiento</title>
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/default.css"/>
+     <link type="text/css" rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
 <?php include_once("../Resource/html/header.php"); ?>    

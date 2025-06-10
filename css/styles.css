@@ -1,0 +1,51 @@
+
+/* Ajuste del contenedor principal para evitar que el contenido quede oculto por el header */
+main {
+    margin-top: 80px; /* Ajustar según el tamaño del header */
+}
+
+/* Estilo para la tarjeta */
+.card { 
+    background: rgba(50, 50, 50, 0.7); /* Gris oscuro translúcido */
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+
+    background-image: url('../Imagenes/Tipos-extintores.webp'); /* Ruta de la imagen */
+}
+
+/* Mejorar visibilidad del texto en la tabla */
+table.highlight.bordered.dataTable {
+    background: rgba(50, 50, 50, 0.7);/* Fondo gris oscuro */
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+/* Asegurar que los textos sean legibles sobre la imagen */
+th, td {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para contraste */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px;
+}
+
+/* Ajuste del botón flotante */
+.btn-floating {
+    background: linear-gradient(135deg, #757575, #424242); /* Tonos de gris oscuros */
+    box-shadow: 0 4px 10px rgba(100, 100, 100, 0.6);
+}
+
+/* Estilo para el modal */
+.modal {
+    background: rgba(60, 60, 60, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    color: white;
+}

@@ -1,7 +1,7 @@
 <?php
 //---------------------------------------------------------------------
 // Acceso a Bases de Dato
-// Nombre: Fernanda Gonzalez
+// Nombre: Estefania Fuentes
 // Enero 2025
 //---------------------------------------------------------------------
 require_once("global.php"); // Importamos variables BD

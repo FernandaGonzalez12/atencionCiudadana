@@ -9,6 +9,7 @@
     <link type="text/css" rel="stylesheet" href="../css/dataTables.materialize.css"/>
     <link type="text/css" rel="stylesheet" href="../css/default.css"/>
     <link rel="icon" type="image/x-icon" href="../fonts/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="../css/styles.css"/>
 </head>
 <body>
 <?php
@@ -80,8 +81,8 @@
             </div>
         </form>
     </div>
-    <div class="modal-footer #80deea cyan lighten-3">
-        <a id="guardar" class="modal-action waves-effect waves-green btn-flat">Guardar</a>
+    <div class="modal-footerrgb(128, 183, 234) cyan lighten-3">
+        <a id="guardar" class="modal-action waves-effect waves-blue btn-flat">Guardar</a>
     </div>
 </div>
 
